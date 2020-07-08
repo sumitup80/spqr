@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://generated.soap.spqr.bt.com" 
+xmlns:tns="http://generated.soap.spqr.bt.com"
+ elementFormDefault="qualified">
+  
+  <xs:element name="GetNBIAvailabilityByEIRCodeRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name= "eirCode" type="xs:string"/>
+      </xs:sequence>  
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="GetNBIAvailabilityByEIRCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name= "NBIResponseDTO" type="tns:NBIResponseDTO"/>
+      </xs:sequence>  
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:complexType name="NBIResponseDTO">
+    <xs:sequence>
+        <xs:element name="orderId" type="xs:string" />
+        <xs:element name="buildingDetails">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="xs:unsignedLong" />
+              <xs:element name="buildingAddress" type="xs:string" />
+              <xs:element name="interventionArea" type="xs:boolean" />
+              <xs:element name="location">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="latitude" type="xs:decimal" />
+                    <xs:element name="longitude" type="xs:decimal" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="survey">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="surveyRequired" type="xs:boolean" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="multiplePremises" type="xs:boolean" />
+              <xs:element maxOccurs="unbounded" name="addresses">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="id" type="xs:unsignedInt" />
+                    <xs:element name="name" type="xs:string" />
+                    <xs:element name="serviceLocation">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="eircode" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="orderInformation">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="pendingInstallation" type="xs:boolean" />
+                          <xs:element name="previousInstallation" type="xs:boolean" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element maxOccurs="unbounded" name="eligibilityDetails">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="service" type="xs:string" />
+              <xs:element name="serviceDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="availability">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="targetLaunchPhase" type="xs:gYearMonth" />
+                          <xs:element name="certaintyLevel" type="xs:string" />
+                          <xs:element name="preOrderFlag" type="xs:boolean" />
+                          <xs:element name="installationType" type="xs:string" />
+                          <xs:element name="wayLeaveRequired" type="xs:string" />
+                          <xs:element name="connectionStandard" type="xs:string" />
+                          <xs:element name="connectionComplexity" type="xs:string" />
+                          <xs:element name="dropType" type="xs:string" />
+                          <xs:element name="readyForServiceDate" type="xs:date" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element maxOccurs="unbounded" name="eligibleProducts">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="products" type="xs:string" />
+                          <xs:element maxOccurs="unbounded" name="addOns" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element maxOccurs="unbounded" name="inHomeServices" type="xs:string" />
+                    <xs:element maxOccurs="unbounded" name="CPE" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+  </xs:complexType>
+  
+</xs:schema>

@@ -18,7 +18,7 @@ public class CachingService {
 	}
 
 	
-	@Scheduled(fixedRate = 360000)
+	@Scheduled(fixedRate = 360000)	
 	public void evictAllcachesAtIntervals() {
 		System.out.println("Automatic cache eviction called");
 	    evictAllCaches();

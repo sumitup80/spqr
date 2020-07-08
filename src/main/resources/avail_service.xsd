@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:urn="http://www.example.com/name" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="AVAIL_SERVICES">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="AVAIL_SERVICE">
+          <xs:complexType mixed="true">
+            <xs:sequence>
+              <xs:element name="SERVICE_CLASS" type="xs:string" />
+              <xs:element name="SERVICE_RESULT" type="xs:string" />
+              <xs:element name="SERVICE_STATUS" type="xs:string" />
+              <xs:element maxOccurs="unbounded" name="QUALIFIED_SERVICE">
+                <xs:complexType mixed="true">
+                  <xs:sequence>
+                    <xs:element name="SERVICE_CODE" type="xs:string" />
+                    <xs:element name="PROFILE_CODE" type="xs:string" minOccurs="0" />
+                    <xs:element minOccurs="0" name="RECOMMENDED" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="SERVICE_ATTRIBUTES">
+                <xs:complexType mixed="true">
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="ATTRIBUTE">
+                      <xs:complexType mixed="true">
+                        <xs:sequence>
+                          <xs:element name="NAME" type="xs:string" />
+                          <xs:element name="VALUE" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="INTERNAL_AVAIL">
+                <xs:complexType mixed="true">
+                  <xs:sequence>
+                    <xs:element name="EIRCOM" minOccurs="0">
+                      <xs:complexType mixed="true">
+                        <xs:sequence>
+                          <xs:element name="FIBRE">
+                            <xs:complexType mixed="true">
+                              <xs:sequence>
+                                <xs:element name="HAS_VUA_QS" type="xs:string" />
+                                <xs:element name="HAS_BSP_QS" type="xs:string" />
+                                <xs:element name="VUA_DELIVERABLE" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>                      
+                    </xs:element>
+                    <xs:element name="SIRO" minOccurs="0">
+          				<xs:complexType mixed="true">
+            				<xs:sequence>
+              					<xs:element name="PREMISES_ID" type="xs:string" />
+            				</xs:sequence>
+          				</xs:complexType>
+        			</xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AVAIL_SERVICES xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:urn="http://www.example.com/name"  
+    xsi:schemaLocation="http://www.example.com/name avail_service.xsd">
+	<AVAIL_SERVICE>
+          <SERVICE_CLASS>SFIB</SERVICE_CLASS>
+          <SERVICE_RESULT>GREEN</SERVICE_RESULT>
+          <SERVICE_STATUS>AVAILABLE</SERVICE_STATUS>
+          <QUALIFIED_SERVICE>
+            <SERVICE_CODE>SLS150</SERVICE_CODE>
+          </QUALIFIED_SERVICE>
+          <QUALIFIED_SERVICE>
+            <SERVICE_CODE>SLS500</SERVICE_CODE>
+            <RECOMMENDED>Y</RECOMMENDED>
+          </QUALIFIED_SERVICE>
+          <QUALIFIED_SERVICE>
+            <SERVICE_CODE>SLS1GB</SERVICE_CODE>
+            <RECOMMENDED>Y</RECOMMENDED>
+          </QUALIFIED_SERVICE>
+          <SERVICE_ATTRIBUTES>
+            <ATTRIBUTE>
+              <NAME>APPOINTMENT_REQUIRED</NAME>
+              <VALUE>Y</VALUE>
+            </ATTRIBUTE>
+            <ATTRIBUTE>
+              <NAME>APPOINTMENT_TYPE</NAME>
+              <VALUE>INSTALLATION</VALUE>
+            </ATTRIBUTE>
+          </SERVICE_ATTRIBUTES>
+          <INTERNAL_AVAIL>
+            <SIRO>
+              <PREMISES_ID>P000000000</PREMISES_ID>
+            </SIRO>
+          </INTERNAL_AVAIL>
+       </AVAIL_SERVICE>
+</AVAIL_SERVICES>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="NOTIFICATION">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element name="HEADER">
+          <xs:complexType mixed="true">
+            <xs:sequence>
+              <xs:element name="DATA_CONTRACT_NAME" type="xs:string" />
+              <xs:element name="ORIGINATOR_CODE" type="xs:string" />
+              <xs:element name="TRANSACTION_ID" type="xs:unsignedShort" />
+              <xs:element name="DATE_TIME_STAMP" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NOTIFICATION_DATA">
+          <xs:complexType mixed="true">
+            <xs:sequence>
+              <xs:element name="NAME" type="xs:string" />
+              <xs:element name="CODE" type="xs:unsignedInt" />
+              <xs:element name="ORDER_NUMBER" type="xs:unsignedByte" />
+              <xs:element name="APPLICATION_DATE" type="xs:string" />
+              <xs:element name="RECEIVED_DATE" type="xs:string" />
+              <xs:element name="MESSAGE_TYPE" type="xs:string" />
+              <xs:element name="MESSAGE_DATE" type="xs:string" />
+              <xs:element name="OVERALL_RESPONSE" type="xs:string" />
+              <xs:element name="INTERNAL_STATUS" type="xs:string" />
+              <xs:element name="AVAILABILITY">
+                <xs:complexType mixed="true">
+                  <xs:sequence>
+                    <xs:element name="SERVICE_IDENTIFIER">
+                      <xs:complexType mixed="true">
+                        <xs:sequence>
+                          <xs:element name="EIRCODE" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="AVAILABILITY_RESULT" type="xs:string" />
+                    <xs:element name="AVAIL_SERVICES">
+                      <xs:complexType mixed="true">
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="AVAIL_SERVICE">
+                            <xs:complexType mixed="true">
+                              <xs:sequence>
+                                <xs:element name="SERVICE_CLASS" type="xs:string" />
+                                <xs:element name="SERVICE_RESULT" type="xs:string" />
+                                <xs:element name="SERVICE_STATUS" type="xs:string" />
+                                <xs:element maxOccurs="unbounded" name="QUALIFIED_SERVICE">
+                                  <xs:complexType mixed="true">
+                                    <xs:sequence>
+                                      <xs:element name="SERVICE_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" name="PROFILE_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" name="RECOMMENDED" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="SERVICE_ATTRIBUTES">
+                                  <xs:complexType mixed="true">
+                                    <xs:sequence>
+                                      <xs:element maxOccurs="unbounded" name="ATTRIBUTE">
+                                        <xs:complexType mixed="true">
+                                          <xs:sequence>
+                                            <xs:element name="NAME" type="xs:string" />
+                                            <xs:element name="VALUE" type="xs:string" />
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="INTERNAL_AVAIL">
+                                  <xs:complexType mixed="true">
+                                    <xs:sequence>
+                                      <xs:element minOccurs="0" name="SIRO">
+                                        <xs:complexType mixed="true">
+                                          <xs:sequence>
+                                            <xs:element name="PREMISES_ID" type="xs:string" />
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element minOccurs="0" name="EIRCOM">
+                                        <xs:complexType mixed="true">
+                                          <xs:sequence>
+                                            <xs:element name="FIBRE">
+                                              <xs:complexType mixed="true">
+                                                <xs:sequence>
+                                                  <xs:element name="HAS_VUA_QS" type="xs:string" />
+                                                  <xs:element name="HAS_BSP_QS" type="xs:string" />
+                                                  <xs:element name="VUA_DELIVERABLE" type="xs:string" />
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="RAW_RESULTS">
+                <xs:complexType mixed="true">
+                  <xs:sequence>
+                    <xs:element name="EIRCOM">
+                      <xs:complexType mixed="true">
+                        <xs:sequence>
+                          <xs:element name="QB">
+                            <xs:complexType mixed="true">
+                              <xs:sequence>
+                                <xs:element name="REQUEST">
+                                  <xs:complexType mixed="true">
+                                    <xs:sequence>
+                                      <xs:element name="EIRCODE" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="RESPONSE">
+                                  <xs:complexType mixed="true">
+                                    <xs:sequence>
+                                      <xs:element name="NOTIFICATION_DATA">
+                                        <xs:complexType mixed="true">
+                                          <xs:sequence>
+                                            <xs:element name="NAME" type="xs:string" />
+                                            <xs:element name="CODE" type="xs:unsignedShort" />
+                                            <xs:element name="ORDER_NUMBER" type="xs:string" />
+                                            <xs:element name="APPLICATION_DATE" type="xs:string" />
+                                            <xs:element name="RECEIVED_DATE" type="xs:string" />
+                                            <xs:element name="MESSAGE_TYPE" type="xs:string" />
+                                            <xs:element name="MESSAGE_DATE" type="xs:string" />
+                                            <xs:element name="ORDER_ID" type="xs:unsignedShort" />
+                                            <xs:element name="CLI_DETAILS">
+                                              <xs:complexType mixed="true">
+                                                <xs:sequence>
+                                                  <xs:element name="ACTION_FLAG" type="xs:string" />
+                                                  <xs:element name="BITSTREAM_DETAILS">
+                                                    <xs:complexType mixed="true">
+                                                      <xs:sequence>
+                                                        <xs:element name="EIRCODE_EXISTS" type="xs:string" />
+                                                        <xs:element name="PREQUAL_RESULT" type="xs:string" />
+                                                        <xs:element name="PREQUAL_SPEED" type="xs:unsignedInt" />
+                                                        <xs:element maxOccurs="unbounded" name="QUALIFIED_SERVICE">
+                                                          <xs:complexType mixed="true">
+                                                            <xs:sequence>
+                                                              <xs:element name="SERVICE_CODE" type="xs:string" />
+                                                              <xs:element minOccurs="0" name="PROFILE_CODE" type="xs:string" />
+                                                            </xs:sequence>
+                                                          </xs:complexType>
+                                                        </xs:element>
+                                                      </xs:sequence>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="NLE">
+                            <xs:complexType mixed="true">
+                              <xs:sequence>
+                                <xs:element name="REQUEST">
+                                  <xs:complexType mixed="true">
+                                    <xs:sequence>
+                                      <xs:element name="EIRCODE" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="RESPONSE" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="SIRO">
+                      <xs:complexType mixed="true">
+                        <xs:sequence>
+                          <xs:element name="ELIGIBILITY">
+                            <xs:complexType mixed="true">
+                              <xs:sequence>
+                                <xs:element name="REQUEST">
+                                  <xs:complexType mixed="true">
+                                    <xs:sequence>
+                                      <xs:element name="EIRCODE" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="RESPONSE">
+                                  <xs:complexType mixed="true">
+                                    <xs:sequence>
+                                      <xs:element name="PremisesEligibility">
+                                        <xs:complexType mixed="true">
+                                          <xs:sequence>
+                                            <xs:element name="PremisesId" type="xs:string" />
+                                            <xs:element name="BuildingId" type="xs:unsignedByte" />
+                                            <xs:element name="ClusterId" type="xs:unsignedByte" />
+                                            <xs:element name="EligibilityStatus" type="xs:string" />
+                                            <xs:element name="NetworkDetails">
+                                              <xs:complexType mixed="true">
+                                                <xs:sequence>
+                                                  <xs:element name="PoiId" type="xs:unsignedByte" />
+                                                  <xs:element name="PoiName" type="xs:string" />
+                                                  <xs:element name="PopId" type="xs:unsignedByte" />
+                                                  <xs:element name="PopName" type="xs:string" />
+                                                  <xs:element name="IsPoiConnected" type="xs:boolean" />
+                                                  <xs:element name="StatusDate" type="xs:dateTime" />
+                                                  <xs:element name="DropType" type="xs:string" />
+                                                  <xs:element name="PortAvailableFlag" type="xs:boolean" />
+                                                  <xs:element name="TechnologyType" type="xs:string" />
+                                                  <xs:element name="AdditionalBuildIndicator" type="xs:string" />
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="LastChangedDate" type="xs:dateTime" />
+                                            <xs:element name="DoesPendingOrderExist" type="xs:boolean" />
+                                            <xs:element name="AppointmentRequired" type="xs:boolean" />
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="Result" type="xs:string" />
+                                      <xs:element name="ErrorMessages" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="GETONTSTATUS">
+                            <xs:complexType mixed="true">
+                              <xs:sequence>
+                                <xs:element name="REQUEST">
+                                  <xs:complexType mixed="true">
+                                    <xs:sequence>
+                                      <xs:element name="EIRCODE" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="RESPONSE" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
