@@ -9,9 +9,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import com.bt.spqr.adapters.SupplierAdapter;
-import com.bt.spqr.model.AVAIL_SERVICES;
+import com.bt.spqr.model.AvailServices;
 import com.bt.spqr.model.NBIResponse;
-import com.bt.spqr.model.NOTIFICATION;
+import com.bt.spqr.model.Notification;
 import com.bt.spqr.model.Supplier;
 
 @Component
@@ -25,21 +25,21 @@ public class AvailabilityServiceImpl implements AvailabilityService {
 	
 	@Cacheable(value = "products", key="#eirCode")
 	@Override
-	public NOTIFICATION getAvailabilityStatus(String eirCode, String accountNumber, String phoneNumber) {
+	public Notification getAvailabilityStatus(String eirCode, String accountNumber, String phoneNumber) {
 		System.out.println("Getting Products by Area code "  + eirCode);
-		NOTIFICATION notification = new NOTIFICATION();		
+		Notification notification = new Notification();		
 		List<Supplier> supplierList = supplierService.getAllSuppliers();
 		
 		for(Supplier supplier:supplierList) {
-			AVAIL_SERVICES availableServices = getSupplierProductsAvailability(supplier, eirCode,accountNumber, phoneNumber);
+			AvailServices availableServices = getSupplierProductsAvailability(supplier, eirCode,accountNumber, phoneNumber);
 			if(availableServices.getAVAIL_SERVICE().size()>0)
 				notification.getNOTIFICATION_DATA().getAVAILABILITY().getAVAIL_SERVICES().getAVAIL_SERVICE().addAll(availableServices.getAVAIL_SERVICE());			
 		}		
 		return notification;
 	}
 	
-	private AVAIL_SERVICES getSupplierProductsAvailability(Supplier supplier, String eirCode, String accountNumber, String phoneNumber) {
-		AVAIL_SERVICES avail_services = new AVAIL_SERVICES();
+	private AvailServices getSupplierProductsAvailability(Supplier supplier, String eirCode, String accountNumber, String phoneNumber) {
+		AvailServices avail_services = new AvailServices();
 		try {
 			SupplierAdapter supplierAdpter = (SupplierAdapter) Class.forName(supplier.getAdapterClass()).newInstance();
 			avail_services = supplierAdpter.getAvailableProductsByERCode(eirCode, accountNumber, phoneNumber);			
@@ -57,7 +57,7 @@ public class AvailabilityServiceImpl implements AvailabilityService {
 	public NBIResponse getNBIAvailabilityStatus(String eirCode) {
 		NBIResponse nbiResponse = new NBIResponse();
 		System.out.println("Getting Products by Area code "  + eirCode);
-		NOTIFICATION notification = new NOTIFICATION();		
+		Notification notification = new Notification();		
 		Supplier supplier = supplierService.getSupplierBySupplierCode("NBI");
 		SupplierAdapter supplierAdpter;
 		try {

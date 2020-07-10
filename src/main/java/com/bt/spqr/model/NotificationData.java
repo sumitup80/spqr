@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="NOTIFICATION_DATA")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class NOTIFICATION_DATA implements Serializable{
+public class NotificationData implements Serializable{
 	/**
 	 * 
 	 */
@@ -33,7 +33,7 @@ public class NOTIFICATION_DATA implements Serializable{
 	@XmlElement
 	private String INTERNAL_STATUS;
 	@XmlElement(name="AVAILABILITY")
-	AVAILABILITY_1 AVAILABILITYObject = new AVAILABILITY_1();
+	Availability_1 AVAILABILITYObject = new Availability_1();
 
 	// Getter Methods
 
@@ -73,7 +73,7 @@ public class NOTIFICATION_DATA implements Serializable{
 		return INTERNAL_STATUS;
 	}
 
-	public AVAILABILITY_1 getAVAILABILITY() {
+	public Availability_1 getAVAILABILITY() {
 		return AVAILABILITYObject;
 	}
 
@@ -115,7 +115,7 @@ public class NOTIFICATION_DATA implements Serializable{
 		this.INTERNAL_STATUS = INTERNAL_STATUS;
 	}
 
-	public void setAVAILABILITY(AVAILABILITY_1 AVAILABILITYObject) {
+	public void setAVAILABILITY(Availability_1 AVAILABILITYObject) {
 		this.AVAILABILITYObject = AVAILABILITYObject;
 	}
 }

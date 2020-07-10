@@ -10,25 +10,25 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="AVAILABILITY")
 @XmlAccessorType(XmlAccessType.FIELD)
 
-public class AVAILABILITY_1 implements Serializable {
+public class Availability_1 implements Serializable {
 	 /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	@XmlElement(name="SERVICE_IDENTIFIER")
-	 SERVICE_IDENTIFIER SERVICE_IDENTIFIERObject = new SERVICE_IDENTIFIER();
+	 ServiceIdentifier SERVICE_IDENTIFIERObject = new ServiceIdentifier();
 	 
 	 @XmlElement
 	 private String AVAILABILITY_RESULT;
 	 
 	 @XmlElement(name="AVAIL_SERVICES")
-	 AVAIL_SERVICES AVAIL_SERVICESObject = new AVAIL_SERVICES();
+	 AvailServices AVAIL_SERVICESObject = new AvailServices();
 
 
 	 // Getter Methods 
 
-	 public SERVICE_IDENTIFIER getSERVICE_IDENTIFIER() {
+	 public ServiceIdentifier getSERVICE_IDENTIFIER() {
 	  return SERVICE_IDENTIFIERObject;
 	 }
 
@@ -36,13 +36,13 @@ public class AVAILABILITY_1 implements Serializable {
 	  return AVAILABILITY_RESULT;
 	 }
 
-	 public AVAIL_SERVICES getAVAIL_SERVICES() {
+	 public AvailServices getAVAIL_SERVICES() {
 	  return AVAIL_SERVICESObject;
 	 }
 
 	 // Setter Methods 
 
-	 public void setSERVICE_IDENTIFIER(SERVICE_IDENTIFIER SERVICE_IDENTIFIERObject) {
+	 public void setSERVICE_IDENTIFIER(ServiceIdentifier SERVICE_IDENTIFIERObject) {
 	  this.SERVICE_IDENTIFIERObject = SERVICE_IDENTIFIERObject;
 	 }
 
@@ -50,7 +50,7 @@ public class AVAILABILITY_1 implements Serializable {
 	  this.AVAILABILITY_RESULT = AVAILABILITY_RESULT;
 	 }
 
-	 public void setAVAIL_SERVICES(AVAIL_SERVICES AVAIL_SERVICESObject) {
+	 public void setAVAIL_SERVICES(AvailServices AVAIL_SERVICESObject) {
 	  this.AVAIL_SERVICESObject = AVAIL_SERVICESObject;
 	 }
 	}

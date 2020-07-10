@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.bt.spqr.adapters.SupplierAdapter;
-import com.bt.spqr.model.AVAIL_SERVICES;
+import com.bt.spqr.model.AvailServices;
 import com.bt.spqr.model.NBIResponse;
 
 @Component
@@ -27,8 +27,8 @@ public class NBIAdapter implements SupplierAdapter {
 	RestTemplate restTemplate;
 	
 	@Override
-	public AVAIL_SERVICES getAvailableProductsByERCode(String eirCode, String accountNumber, String phoneNumber) {
-	AVAIL_SERVICES availableServices = new AVAIL_SERVICES();
+	public AvailServices getAvailableProductsByERCode(String eirCode, String accountNumber, String phoneNumber) {
+	AvailServices availableServices = new AvailServices();
 		
 	return availableServices;
 

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="AVAIL_SERVICE")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class AVAIL_SERVICE implements Serializable {
+public class AvailService implements Serializable {
 	/**
 	 * 
 	 */
@@ -22,11 +22,11 @@ public class AVAIL_SERVICE implements Serializable {
 	@XmlElement
 	private String SERVICE_STATUS;
 	@XmlElement
-	ArrayList<QUALIFIED_SERVICE> QUALIFIED_SERVICE = new ArrayList<QUALIFIED_SERVICE>();
+	ArrayList<QualifiedService> QUALIFIED_SERVICE = new ArrayList<QualifiedService>();
 	@XmlElement(name="SERVICE_ATTRIBUTES")
-	SERVICE_ATTRIBUTES SERVICE_ATTRIBUTESObject;
+	ServiceAttributes SERVICE_ATTRIBUTESObject;
 	@XmlElement(name="INTERNAL_AVAL")
-	INTERNAL_AVAIL INTERNAL_AVAILObject = new INTERNAL_AVAIL();
+	InternalAvail INTERNAL_AVAILObject = new InternalAvail();
 
 	// Getter Methods
 
@@ -42,11 +42,11 @@ public class AVAIL_SERVICE implements Serializable {
 		return SERVICE_STATUS;
 	}
 
-	public SERVICE_ATTRIBUTES getSERVICE_ATTRIBUTES() {
+	public ServiceAttributes getSERVICE_ATTRIBUTES() {
 		return SERVICE_ATTRIBUTESObject;
 	}
 
-	public INTERNAL_AVAIL getINTERNAL_AVAIL() {
+	public InternalAvail getINTERNAL_AVAIL() {
 		return INTERNAL_AVAILObject;
 	}
 
@@ -64,11 +64,11 @@ public class AVAIL_SERVICE implements Serializable {
 		this.SERVICE_STATUS = SERVICE_STATUS;
 	}
 
-	public void setSERVICE_ATTRIBUTES(SERVICE_ATTRIBUTES SERVICE_ATTRIBUTESObject) {
+	public void setSERVICE_ATTRIBUTES(ServiceAttributes SERVICE_ATTRIBUTESObject) {
 		this.SERVICE_ATTRIBUTESObject = SERVICE_ATTRIBUTESObject;
 	}
 
-	public void setINTERNAL_AVAIL(INTERNAL_AVAIL INTERNAL_AVAILObject) {
+	public void setINTERNAL_AVAIL(InternalAvail INTERNAL_AVAILObject) {
 		this.INTERNAL_AVAILObject = INTERNAL_AVAILObject;
 	}
 }

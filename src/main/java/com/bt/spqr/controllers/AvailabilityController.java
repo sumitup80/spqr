@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.bt.spqr.model.NBIResponse;
-import com.bt.spqr.model.NOTIFICATION;
+import com.bt.spqr.model.Notification;
 import com.bt.spqr.services.AvailabilityService;
 
 import io.swagger.annotations.ApiOperation;
@@ -26,27 +26,27 @@ public class AvailabilityController {
 	@ApiOperation(value = "Get all available products as per the mentioned filter of EIRCode, account number and phone number.",
 			notes = "This method will get all available products as per the mentioned filter of EIRCode, account number and phone number.")
 	@GetMapping(path = "/availabilty/{eirCode}/{accountNumber}/{phoneNumber}", produces = {"application/xml", "application/json" })
-	public ResponseEntity<NOTIFICATION> getAvailabilityByEirCodeAccNumberPhNumber(@PathVariable(value="eirCode") String eirCode,
+	public ResponseEntity<Notification> getAvailabilityByEirCodeAccNumberPhNumber(@PathVariable(value="eirCode") String eirCode,
 			@PathVariable(value="accountNumber") String accountNumber, @PathVariable(value="phoneNumber") String phoneNumber){
-		NOTIFICATION notification = availabilityService.getAvailabilityStatus(eirCode,accountNumber, phoneNumber);		
-		return new ResponseEntity<NOTIFICATION>(notification,new HttpHeaders(), HttpStatus.OK);		
+		Notification notification = availabilityService.getAvailabilityStatus(eirCode,accountNumber, phoneNumber);		
+		return new ResponseEntity<Notification>(notification,new HttpHeaders(), HttpStatus.OK);		
 	}
 	
 	@ApiOperation(value = "Get all available products as per the mentioned filter of account number and phone number.",
 			notes = "This method will get all available products as per the mentioned filter of account number and phone number.")
 	@GetMapping(path = "/availabilty/{accountNumber}/{phoneNumber}", produces = {"application/xml", "application/json" })
-	public ResponseEntity<NOTIFICATION> getAvailabilityByAccNumberPhNumber(@PathVariable(value="accountNumber") String accountNumber, 
+	public ResponseEntity<Notification> getAvailabilityByAccNumberPhNumber(@PathVariable(value="accountNumber") String accountNumber, 
 			@PathVariable(value="phoneNumber") String phoneNumber){
-		NOTIFICATION notification = availabilityService.getAvailabilityStatus("", accountNumber, phoneNumber);		
-		return new ResponseEntity<NOTIFICATION>(notification,new HttpHeaders(), HttpStatus.OK);	
+		Notification notification = availabilityService.getAvailabilityStatus("", accountNumber, phoneNumber);		
+		return new ResponseEntity<Notification>(notification,new HttpHeaders(), HttpStatus.OK);	
 	}
 	
 	@ApiOperation(value = "Get all available products as per the mentioned filter of eirCode.",
 			notes = "This method will get all available products as per the mentioned filter of eirCode.")
 	@GetMapping(path = "/availabilty/{eirCode}", produces = {"application/xml", "application/json" })
-	public ResponseEntity<NOTIFICATION> getAvailabilityByEirCode(@PathVariable(value="eirCode") String eirCode){
-		NOTIFICATION notification = availabilityService.getAvailabilityStatus(eirCode,"","");		
-		return new ResponseEntity<NOTIFICATION>(notification,new HttpHeaders(), HttpStatus.OK);	
+	public ResponseEntity<Notification> getAvailabilityByEirCode(@PathVariable(value="eirCode") String eirCode){
+		Notification notification = availabilityService.getAvailabilityStatus(eirCode,"","");		
+		return new ResponseEntity<Notification>(notification,new HttpHeaders(), HttpStatus.OK);	
 	}
 	
 	@ApiOperation(value = "Get all available NBI products as per the mentioned filter of eirCode.",

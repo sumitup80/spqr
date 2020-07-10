@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="FIBRE")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class FIBRE implements Serializable{
+public class Fibre implements Serializable{
 	/**
 	 * 
 	 */

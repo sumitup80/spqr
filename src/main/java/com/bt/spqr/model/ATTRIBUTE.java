@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="ATTRIBUTE")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ATTRIBUTE implements Serializable{
+public class Attribute implements Serializable{
 	
 	/**
 	 * 

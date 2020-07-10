@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="HEADER")
 @XmlAccessorType(XmlAccessType.FIELD)
 
-public class HEADER  implements Serializable{
+public class Header  implements Serializable{
 	@XmlElement
 	private String DATA_CONTRACT_NAME;
 	@XmlElement

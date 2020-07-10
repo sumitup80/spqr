@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "QUALIFIED_SERVICE")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class QUALIFIED_SERVICE implements Serializable{
+public class QualifiedService implements Serializable{
 
 	/**
 	 * 

@@ -9,35 +9,35 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="NOTIFICATION")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class NOTIFICATION implements Serializable{
+public class Notification implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	@XmlElement(name="HEADER")
-	HEADER HEADERObject = new HEADER();
+	Header HEADERObject = new Header();
 	
 	@XmlElement(name="NOTIFICATION_DATA")
-	NOTIFICATION_DATA NOTIFICATION_DATAObject = new NOTIFICATION_DATA();
+	NotificationData NOTIFICATION_DATAObject = new NotificationData();
 
 	// Getter Methods
 
-	public HEADER getHEADER() {
+	public Header getHEADER() {
 		return HEADERObject;
 	}
 
-	public NOTIFICATION_DATA getNOTIFICATION_DATA() {
+	public NotificationData getNOTIFICATION_DATA() {
 		return NOTIFICATION_DATAObject;
 	}
 
 	// Setter Methods
 
-	public void setHEADER(HEADER HEADERObject) {
+	public void setHEADER(Header HEADERObject) {
 		this.HEADERObject = HEADERObject;
 	}
 
-	public void setNOTIFICATION_DATA(NOTIFICATION_DATA NOTIFICATION_DATAObject) {
+	public void setNOTIFICATION_DATA(NotificationData NOTIFICATION_DATAObject) {
 		this.NOTIFICATION_DATAObject = NOTIFICATION_DATAObject;
 	}
 }

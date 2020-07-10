@@ -10,24 +10,24 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="EIRCOM")
 @XmlAccessorType(XmlAccessType.FIELD)
 
-public class EIRCOM implements Serializable{
+public class EirCom implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@XmlElement(name="FIBRE")
-	FIBRE FIBREObject = new FIBRE();
+	Fibre FIBREObject = new Fibre();
 
 
 	 // Getter Methods 
 
-	 public FIBRE getFIBRE() {
+	 public Fibre getFIBRE() {
 	  return FIBREObject;
 	 }
 
 	 // Setter Methods 
 
-	 public void setFIBRE(FIBRE FIBREObject) {
+	 public void setFIBRE(Fibre FIBREObject) {
 	  this.FIBREObject = FIBREObject;
 	 }
 	}

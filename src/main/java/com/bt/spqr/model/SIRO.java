@@ -2,7 +2,7 @@ package com.bt.spqr.model;
 
 import java.io.Serializable;
 
-public class SIRO implements Serializable{
+public class Siro implements Serializable{
 	/**
 	 * 
 	 */

@@ -10,20 +10,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="AVAIL_SERVICES")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class AVAIL_SERVICES implements Serializable {
+public class AvailServices implements Serializable {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@XmlElement
-	ArrayList<AVAIL_SERVICE> AVAIL_SERVICE = new ArrayList<AVAIL_SERVICE>();
+	ArrayList<AvailService> AVAIL_SERVICE = new ArrayList<AvailService>();
 
-	public ArrayList<AVAIL_SERVICE> getAVAIL_SERVICE() {
+	public ArrayList<AvailService> getAVAIL_SERVICE() {
 		return AVAIL_SERVICE;
 	}
 
-	public void setAVAIL_SERVICE(ArrayList<AVAIL_SERVICE> aVAIL_SERVICE) {
+	public void setAVAIL_SERVICE(ArrayList<AvailService> aVAIL_SERVICE) {
 		AVAIL_SERVICE = aVAIL_SERVICE;
 	}
 }

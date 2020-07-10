@@ -14,25 +14,25 @@ import javax.xml.validation.SchemaFactory;
 import org.springframework.stereotype.Component;
 
 import com.bt.spqr.adapters.SupplierAdapter;
-import com.bt.spqr.model.AVAIL_SERVICES;
+import com.bt.spqr.model.AvailServices;
 import com.bt.spqr.model.Product;
 @Component
 public class SiroAdapter implements SupplierAdapter {
 
 	@Override
-	public AVAIL_SERVICES getAvailableProductsByERCode(String erCode, String accountNumber, String phoneNumber) {
-		AVAIL_SERVICES availableServices = new AVAIL_SERVICES();
+	public AvailServices getAvailableProductsByERCode(String erCode, String accountNumber, String phoneNumber) {
+		AvailServices availableServices = new AvailServices();
 		ClassLoader classLoader = getClass().getClassLoader();
 	    URL resource = classLoader.getResource("siro_available_services.xml");
 		File file = new File(resource.getFile());  
 	    JAXBContext jaxbContext;
 		try {
-			jaxbContext = JAXBContext.newInstance(AVAIL_SERVICES.class);
+			jaxbContext = JAXBContext.newInstance(AvailServices.class);
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller(); 
 			SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 			Schema schema = schemaFactory.newSchema(getClass().getResource("/avail_service.xsd"));
 			jaxbUnmarshaller.setSchema(schema);
-			availableServices = (AVAIL_SERVICES) jaxbUnmarshaller.unmarshal(file);
+			availableServices = (AvailServices) jaxbUnmarshaller.unmarshal(file);
 //			for(AVAIL_SERVICE avs: availableServices.getAVAIL_SERVICE()) {
 //				System.out.println("Hi");
 //			}
