@@ -1,9 +1,8 @@
 package com.bt.spqr.adapters.siro;
 
 import java.io.File;
+import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
@@ -15,16 +14,15 @@ import org.springframework.stereotype.Component;
 
 import com.bt.spqr.adapters.SupplierAdapter;
 import com.bt.spqr.model.AvailServices;
-import com.bt.spqr.model.Product;
 @Component
 public class SiroAdapter implements SupplierAdapter {
 
 	@Override
 	public AvailServices getAvailableProductsByERCode(String erCode, String accountNumber, String phoneNumber) {
 		AvailServices availableServices = new AvailServices();
-		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-	    URL resource = classLoader.getResource("siro_available_services.xml");
-		File file = new File(resource.getFile());  
+		//ClassLoader classLoader = getClass().getClassLoader();
+		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();	    
+	    InputStream resource = classLoader.getResourceAsStream("siro_available_services.xml");
 	    JAXBContext jaxbContext;
 		try {
 			jaxbContext = JAXBContext.newInstance(AvailServices.class);
@@ -32,7 +30,7 @@ public class SiroAdapter implements SupplierAdapter {
 			SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 			Schema schema = schemaFactory.newSchema(getClass().getResource("/avail_service.xsd"));
 			jaxbUnmarshaller.setSchema(schema);
-			availableServices = (AvailServices) jaxbUnmarshaller.unmarshal(file);
+			availableServices = (AvailServices) jaxbUnmarshaller.unmarshal(resource);
 //			for(AVAIL_SERVICE avs: availableServices.getAVAIL_SERVICE()) {
 //				System.out.println("Hi");
 //			}
