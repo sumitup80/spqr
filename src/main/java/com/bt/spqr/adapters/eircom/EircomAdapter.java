@@ -1,6 +1,7 @@
 package com.bt.spqr.adapters.eircom;
 
 import java.io.File;
+import java.io.InputStream;
 import java.net.URL;
 
 import javax.xml.XMLConstants;
@@ -17,9 +18,8 @@ public class EircomAdapter implements SupplierAdapter {
 	@Override
 	public AvailServices getAvailableProductsByERCode(String erCode, String accountNumber, String phoneNumber) {
 		AvailServices availableServices = new AvailServices();
-		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        URL resource = classLoader.getResource("eircom_available_services.xml");
-		File file = new File(resource.getFile());  
+		ClassLoader classLoader = getClass().getClassLoader();        
+		InputStream resource = classLoader.getResourceAsStream("eircom_available_services.xml");
         JAXBContext jaxbContext;
 		try {
 			jaxbContext = JAXBContext.newInstance(AvailServices.class);
@@ -27,7 +27,7 @@ public class EircomAdapter implements SupplierAdapter {
 			SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 			Schema schema = schemaFactory.newSchema(getClass().getResource("/avail_service.xsd"));
 			jaxbUnmarshaller.setSchema(schema);
-			availableServices = (AvailServices) jaxbUnmarshaller.unmarshal(file);
+			availableServices = (AvailServices) jaxbUnmarshaller.unmarshal(resource);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
