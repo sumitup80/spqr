@@ -22,7 +22,7 @@ public class SiroAdapter implements SupplierAdapter {
 	@Override
 	public AvailServices getAvailableProductsByERCode(String erCode, String accountNumber, String phoneNumber) {
 		AvailServices availableServices = new AvailServices();
-		ClassLoader classLoader = getClass().getClassLoader();
+		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 	    URL resource = classLoader.getResource("siro_available_services.xml");
 		File file = new File(resource.getFile());  
 	    JAXBContext jaxbContext;
